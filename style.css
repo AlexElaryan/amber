@@ -211,18 +211,23 @@ h1 {
 
 .orange-btn {
     width: fit-content;
+    cursor: pointer;
     border-radius: 100px;
     padding: 11px 20px;
     font-family: DM Sans;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
-    box-shadow: 0px 0px 0.5px 0px rgba(255, 255, 255, 1);
     color: #fff;
     background: linear-gradient(180deg, #FF8D29 0%, #FF4400 100%),
         linear-gradient(180deg, rgba(108, 108, 108, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
-    border: 1px solid;
-    border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.1904) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid transparent;
+    border-image: linear-gradient(180deg, rgba(255, 255, 255, 0.1904) 0%, rgba(255, 255, 255, 0) 100%);
+    border-image-slice: 1;
+    border: none;
+    box-shadow:
+        0px 0px 0px 2px rgba(165, 82, 34, 1),
+        0px 1px 2px 0px rgba(62, 34, 13, 0.5);
 }
 
 .optimization button {
@@ -294,11 +299,12 @@ h1 {
     flex-direction: column;
 }
 
-.choose-item>div {
+.choose-item .choose-item-info {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 5px;
+    flex-grow: 1;
 }
 
 .choose-item p {
@@ -319,11 +325,15 @@ h1 {
     color: rgba(33, 33, 33, 1);
 }
 
-
-.choose-item img {
-    max-height: 250px;
-    max-width: 250px;
+.choose-item-picture {
+    overflow: hidden;
+    width: 270px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .power {
     padding: 44px 0 0 0;
@@ -579,40 +589,96 @@ footer {
     display: flex;
 }
 
-.feedback-modal {
+.modal {
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%) scale(0);
-    width: 394px;
-    padding: 24px 20px;
-    padding-top: 60px;
+    width: 404px;
+    padding: 20px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
     border-radius: 16px;
     background: #fff;
     z-index: 111;
+}
+
+.modal h2 {
+    margin-top: 8px;
+    font-family: Clash Display Variable;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 124%;
+    text-align: center;
+    background: linear-gradient(180deg, #212121 15.63%, rgba(33, 33, 33, 0.7) 89.03%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.modal p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: center;
+    color: rgba(33, 33, 33, 1);
+    margin-bottom: 16px;
+}
+
+.modal textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 128px;
+    overflow-y: auto;
+    resize: none;
+    padding: 13px 14px;
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: rgba(33, 33, 33, 1);
+    border-radius: 8px;
+    background: rgba(241, 241, 241, 1);
+    margin-top: 4px;
+}
+
+.modal textarea::placeholder {
+    color: rgba(33, 33, 33, 0.4);
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
 }
 
 .active-modal {
     transform: translateX(-50%) translateY(-50%) scale(1);
 }
 
+.modal button {
+    width: 108px;
+    height: 42px;
+    margin-top: 29px;
+}
+
+.feedback-modal button {
+    margin-top: 16px;
+}
 
 .modal-close {
     cursor: pointer;
     width: 32px;
     height: 32px;
-    background: rgba(0, 0, 0, 0.05);
+    /* background: rgba(0, 0, 0, 0.05); */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 16px;
+    right: 16px;
     transition: .3s;
 }
 
@@ -620,16 +686,27 @@ footer {
     background: rgba(0, 0, 0, 0.09);
 }
 
-.feedback-modal input {
+.modal input {
     width: 100%;
     box-shadow: none;
-    background: rgba(246, 245, 251, 1);
+    background: rgba(241, 241, 241, 1);
     padding: 13px 14px;
     font-size: 16px;
     font-weight: 400;
-    color: rgba(49, 48, 59, 1);
+    color: rgba(33, 33, 33, 0.4);
     border-radius: 10px;
     border: none;
+    outline: none;
+}
+
+.modal input::placeholder {
+    color: rgba(33, 33, 33, 0.4);
+}
+
+@media screen and (max-width:1580px) {
+    .choose-item span {
+        white-space: unset;
+    }
 }
 
 
@@ -707,10 +784,6 @@ footer {
 
     .choose-block {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .choose-item img {
-        max-width: 250px;
     }
 
     .choose-item {
@@ -903,5 +976,10 @@ footer {
 
     .feedback-modal {
         width: calc(100% - 32px);
+    }
+
+    .modal {
+        width: 290px;
+        padding: 20px 16px;
     }
 }

@@ -19,8 +19,9 @@ changeintropic();
 window.addEventListener('resize', changeintropic);
 
 const bodyFilter = document.querySelector('.body-filter');
-const modal = document.querySelector('.feedback-modal');
-const modalOpenBtn = document.querySelectorAll('.feedback-open-btn');
+const modal = document.querySelectorAll('.modal');
+const feedbackModalOpenBtn = document.querySelectorAll('.feedback-open-btn');
+const contactModalOpenBtn = document.querySelectorAll('.contact-open-btn');
 
 
 function modalOpen(modal) {
@@ -34,12 +35,18 @@ function modalClose(modal) {
 }
 
 bodyFilter.onclick = () => {
-    modalClose(modal);
+    modal.forEach(c => modalClose(c));
 }
 
-modalOpenBtn.forEach(el => {
+feedbackModalOpenBtn.forEach(el => {
     el.onclick = () => {
-        modalOpen(modal);
+        modalOpen(document.querySelector('.feedback-modal'));
+    }
+})
+
+contactModalOpenBtn.forEach(el => {
+    el.onclick = () => {
+        modalOpen(document.querySelector('.contact-modal'));
     }
 })
 

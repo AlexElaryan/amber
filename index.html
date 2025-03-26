@@ -118,35 +118,43 @@
         <h2 class="title">Why Choose Amber Road?</h2>
         <div class="choose-block">
             <div class="choose-item">
-                <img src="img/choose1.png" alt="picture">
-                <div>
+                <div class="choose-item-picture">
+                    <img src="img/choose1.png" alt="picture">
+                </div>
+                <div class="choose-item-info">
                     <p>Experience and Expertise</p>
                     <span>With over 10 years in the FinTech industry, we
-                         help our clients implement innovations.</span>
+                        help our clients implement innovations.</span>
                 </div>
             </div>
             <div class="choose-item">
-                <img src="img/choose2.png" alt="picture">
-                <div>
+                <div class="choose-item-picture">
+                    <img src="img/choose2.png" alt="picture">
+                </div>
+                <div class="choose-item-info">
                     <p>Customized Approach</p>
                     <span>We tailor every project to meet the unique needs
-                         of your business</span>
+                        of your business</span>
                 </div>
             </div>
             <div class="choose-item">
-                <img src="img/keys6.png" alt="picture">
-                <div>
+                <div class="choose-item-picture">
+                    <img src="img/keys6.png" alt="picture">
+                </div>
+                <div class="choose-item-info">
                     <p>Security and Reliability</p>
                     <span>We use advanced data protection methods to
-                         ensure your systems are secure and reliable.</span>
+                        ensure your systems are secure and reliable.</span>
                 </div>
             </div>
             <div class="choose-item">
-                <img src="img/choose3.png" alt="picture">
-                <div>
+                <div class="choose-item-picture">
+                    <img src="img/choose3.png" alt="picture">
+                </div>
+                <div class="choose-item-info">
                     <p>Team of Professionals</p>
                     <span>Our team consists of experienced developers, analysts,
-                         and financial experts ready to bring your ideas to life.</span>
+                        and financial experts ready to bring your ideas to life.</span>
                 </div>
             </div>
         </div>
@@ -166,7 +174,7 @@
             <h2 class="title">Contact Us</h2>
             <p>Ready to start your journey toward digital transformation? Submit your inquiry, and we will get in touch
                 to discuss your project.</p>
-            <button class="orange-btn feedback-open-btn">Submit Request</button>
+            <button class="orange-btn contact-open-btn">Submit Request</button>
         </div>
         <img src="img/contactpng.png" alt="">
     </div>
@@ -179,7 +187,7 @@
             <button class="orange-btn feedback-open-btn">Subscribe</button>
         </div>
     </div>
-    
+
     <footer>
         <div class="footer-top">
             <a href="#about">
@@ -203,8 +211,8 @@
         </div>
     </footer>
 
-    <form class="feedback-modal">
-        <div class="modal-close" onclick="modalClose(document.querySelector('.feedback-modal'))">
+    <form class="feedback-modal modal">
+        <div class="modal-close" onclick="modalClose(this.closest('.modal'))">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -212,8 +220,28 @@
                     stroke-linejoin="round" />
             </svg>
         </div>
-        <input type="email" placeholder="E-mail" required>
-        <button class="orange-btn" type="submit">Submit</button>
+        <img src="img/lk.png" alt="logo">
+        <h2>Stay Connected</h2>
+        <p>Subscribe to our newsletter to stay updated on the latest news and trends in the FinTech world.</p>
+        <input type="email" placeholder="example@mail.ru" required>
+        <button class="orange-btn" type="submit">Send</button>
+    </form>
+
+    <form class="contact-modal modal">
+        <div class="modal-close" onclick="modalClose(this.closest('.modal'))">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <img src="img/lk.png" alt="logo">
+        <h2>Contact Us</h2>
+        <p>Subscribe to our newsletter to stay updated on the latest news and trends in the FinTech world.</p>
+        <input type="email" placeholder="example@mail.ru" required>
+        <textarea name="" placeholder="Your messege..." id=""></textarea>
+        <button class="orange-btn" type="submit">Send</button>
     </form>
 
     <div class="body-filter"></div>
